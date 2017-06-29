@@ -15,7 +15,7 @@ const data = [
         id: 0,
         name: "Output",
         role: "textbox",
-        sides: undefined,
+        output: true,
         img: ""
     },
     // {
@@ -89,7 +89,7 @@ export default class Poly extends Component {
             data
         };
         this.renderOutput = this.renderOutput.bind(this);
-        this.renderDice = this.renderDice.bind(this);
+        this.renderBoxes = this.renderBoxes.bind(this);
     }
     // componentDidUpdate(results, before) {
     //     if (this.state.rolls) {
@@ -106,30 +106,42 @@ export default class Poly extends Component {
 
     renderOutput() {
         return this.state.data.map(
-        <div key={data.id} className="output-box textbox">
-          <Output data={data} handleClick={this.renderOutput} />
+            data => (
+        <div key={data.id} className="textbox col s12">
+          <Output />
         </div>
         )
-    }
+    );
+}
 
-    renderDice() {
+    // renderDice() {
+    //     return this.state.data.map(
+    //   data => // We use each data object's id as a unique key
+    //     <div key={data.sides} className="dice-box">
+    //       <D20 data={data} handleClick={this.rollDie} />
+    //       <D12 data={data} handleClick={this.rollDie} />
+    //       <D10 data={data} handleClick={this.rollDie} />
+    //       <D8 data={data} handleClick={this.rollDie} />
+    //       <D6 data={data} handleClick={this.rollDie} />
+    //       <D4 data={data} handleClick={this.rollDie} />
+    //       <D00 data={data} handleClick={this.rollDie} />
+    //     </div>
+    //   );
+    // }
+
+    renderBoxes() {
         return this.state.data.map(
-      data => // We use each data object's id as a unique key
-        <div key={data.id} className="die-box" id={data.name}>
-          <D20 data={data} handleClick={this.rollDie} />
-          <D12 data={data} handleClick={this.rollDie} />
-          <D10 data={data} handleClick={this.rollDie} />
-          <D8 data={data} handleClick={this.rollDie} />
-          <D6 data={data} handleClick={this.rollDie} />
-          <D4 data={data} handleClick={this.rollDie} />
-          <D00 data={data} handleClick={this.rollDie} />
+        data => (
+        <div key={data.id} id={data.name} className="widget-box">
+            
         </div>
-      );
-    }
+        )
+    );
+}
 
     render() {
         return (
-            <div className="row">
+            <div>
                 <div className="col s12">
                 <Output />
                 </div>
@@ -166,18 +178,15 @@ export default class Poly extends Component {
 
     // }
 
-  function rollDie(die)
-  {
+  function rollDie(die){
     die = props.data.sides;
     let rolled = Math.floor(Math.random() * die + 1);
     return rolled;
   }
 
-function roll(number, sides) {
+function roll(number, sides){
     let total = 0;
     let modifier = 0;
     while(number-- > 0) total += rollDie(sides);
     return total;
-
-
 }

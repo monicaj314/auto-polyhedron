@@ -1,11 +1,10 @@
 import React, {Component} from "react";
 
 const Output = () => {
-    // console.log(props);
-    // const {name} = props.data;
     return (
-        <div className="output-box textarea">
-            <p className="filler-text">Test Output text</p>
+        <div id="output-box">
+            <textarea defaultValue="Test Output text"></textarea>
+            <button id="clear" className="btn-small">Clear</button>
         </div>
     );
 };

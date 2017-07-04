@@ -6,14 +6,14 @@ textarea {
 
 #output-box {
     border: 1px solid black;
-    max-width: 200px;
+    max-width: 102px;
     height: 100%;
     text-align: center;
 }
 
 .die {
     border: 1px solid black;
-    max-width: 200px;
+    max-width: 102px;
     height: 100%; 
 }
 

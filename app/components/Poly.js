@@ -13,7 +13,7 @@ const data = [
         advantage: false,
         disadvantage: false,
         luck: false,
-        img: ""
+        img: "./images/d20.jpg"
     },
     {   id: 1,
         name: "d12",
@@ -21,7 +21,7 @@ const data = [
         value: 0,
         results:[],
         selected: false,
-        img: ""
+        img: "./images/d12.png"
     },
     {   id: 2,
         name: "d10",
@@ -29,7 +29,7 @@ const data = [
         value: 0,
         results:[],
         selected: false,
-        img: ""
+        img: "./images/d10.png"
     },
     {
         id: 3,
@@ -38,7 +38,7 @@ const data = [
         value: 0,
         results:[],
         selected: false,
-        img: ""
+        img: "./images/d8.jpg"
     },
     {
         id: 4,
@@ -47,7 +47,7 @@ const data = [
         value: 0,
         results:[],
         selected: false,
-        img:""
+        img:"./images/d6.jpg"
     },
     {
         id: 5,
@@ -56,7 +56,7 @@ const data = [
         value: 0,
         results:[],
         selected: false,
-        img:""
+        img:"./images/d4.png"
     },
     {
         id: 6,
@@ -65,7 +65,7 @@ const data = [
         value: 0,
         results:[],
         selected: false,
-        img:""
+        img:"./images/percentile.jpg"
     }
 ];
 
@@ -77,7 +77,7 @@ const Die = (props) => {
         id={props.sides}
         onClick={props.update}
     >
-      <span>Roll {props.className}</span> 
+<img width="100px" height="100px" src={props.img} alt={props.name} />
     </li>
   )
 }
@@ -105,7 +105,6 @@ export default class Poly extends Component {
     }
     renderDice() { 
         let allDice = [];
-        let dice = data.dice;
         for (var i = 0; i < data.length; i++) {
             allDice.push(
                 <Die 
@@ -116,7 +115,8 @@ export default class Poly extends Component {
                     sides={data[i].sides}
                     value={this.state.value} 
                     selected={false}
-                /> 
+                    img={data[i].img}
+                />
             )
         }  
     return  allDice;

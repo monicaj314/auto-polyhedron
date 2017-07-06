@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-
 import Output from "./children/Output";
 
 const data = [
@@ -164,8 +163,4 @@ export default class Poly extends Component {
         )
     }
 }
-
-
-
-
 

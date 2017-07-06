@@ -1,13 +1,14 @@
 textarea {
     width: 80%;
-    height: 95%;
-    margin: 10px 0 0 10px;
+    height: 75%;
+    margin: 10px 0 0 0;
 }
 
 #output-box {
     border: 1px solid black;
     max-width: 102px;
     height: 100%;
+    font-size: 2em;
     text-align: center;
 }
 
@@ -17,7 +18,7 @@ textarea {
     height: 100%; 
 }
 
-[type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+/*[type="checkbox"]:not(:checked), [type="checkbox"]:checked {
     position: relative !important;
     left:10px;
 }
@@ -29,4 +30,4 @@ textarea {
     width: 40px !important;
     height:1.5em !important;
     margin: 5px 10px 5px 10px !important;
-}
+}*/
